@@ -1,0 +1,2207 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+%\usetheme{Warsaw}
+% oder ...
+
+\setbeamerfont{title}{series=\bfseries} % style frametitle
+
+\setbeamerfont*{frametitle}{size=\large, series=\bfseries} % style frametitle
+
+\setbeamercovered{transparent}
+% oder auch nicht
+ \usepackage{geometry}
+ \geometry{verbose,tmargin=1cm,bmargin=1cm,lmargin=2cm,rmargin=2cm}
+ % replace the margin values with your favourites
+
+\setbeamersize{text margin left=1cm,text margin right=1cm} 
+
+
+\usepackage{color}
+\definecolor{grey}{RGB}{100,100,100}
+\definecolor{blue}{RGB}{0, 74, 153}
+
+\usepackage{hyperref} 
+\hypersetup{
+    pdftitle={Using R for statistical analyses},    % title
+    pdfauthor={Robert K. Bauer},     % author
+    pdfsubject={R course},   % subject of the document
+    pdfnewwindow=true,      % links in new window
+    pdfkeywords={keywords}, % list of keywords
+    colorlinks=true, % false: boxed links; true: colored links
+    linkcolor=blue, % color of internal links
+    urlcolor=blue % color of external links
+}
+
+
+%set fonts for nicer pdf view
+ \IfFileExists{lmodern.sty}{\usepackage{lmodern}}
+  {\usepackage[scaled=0.92]{helvet}
+    \usepackage{mathptmx}
+    \usepackage{courier} }
+
+\usepackage{color}
+\usepackage{xcolor}
+\definecolor{green}{RGB}{76, 136, 107}
+\definecolor{stringgreen}{RGB}{3, 106, 7}
+\definecolor{blue1}{RGB}{0, 0, 255}
+\definecolor{blue2}{RGB}{88, 92, 246}
+\definecolor{blue3}{RGB}{124, 93, 246}
+\definecolor{grey}{RGB}{104, 118, 134}
+\definecolor{white}{RGB}{255, 255, 255}
+
+\newcommand{\CodeSymbol}[1]{\textcolor{grey}{#1}}
+\newcommand{\SecondCodeSymbol}[1]{\textcolor{blue1}{#1}}
+\usepackage{listings}
+
+
+\lstset{
+language=R,
+basicstyle=\ttfamily,
+commentstyle=\ttfamily\color{green},
+%numbers=left,
+%numberstyle=\ttfamily\color{red}\footnotesize,
+%stepnumber=1,
+numbersep=5pt,
+backgroundcolor=\color{white},
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+%frame=single,
+tabsize=2,
+captionpos=b,
+breaklines=true,
+breakatwhitespace=false,
+%title=\lstname,
+escapeinside={},
+keywords={},
+keywordstyle=[1]{\color{blue1}},
+keywordstyle=[2]\color{blue2},
+keywordstyle=[3]\color{grey},
+otherkeywords={},
+%otherkeywords={),(,\{,\},[,],=,-,<,>.},
+morekeywords=[1]{for, if, require, library, function, else, attach},
+morekeywords=[2]{bool, integer, F, FALSE, T, TRUE, NaN, NAN, nan, NA},
+morekeywords=[2]{{1}},
+%identifierstyle={\ttfamily\color{grey}},
+literate=*{\{}{{\CodeSymbol{\{}}}1
+                   {\}}{{\CodeSymbol{\}}}}1
+                   %{)}{{\CodeSymbol{)}}}1
+                   %{(}{{\CodeSymbol{(}}}1
+                   {[}{{\CodeSymbol{[}}}1
+                   {]}{{\CodeSymbol{]}}}1
+                   {<}{{\CodeSymbol{<}}}1
+                   {>}{{\CodeSymbol{>}}}1
+                   {=}{{\CodeSymbol{=}}}1
+                   {-}{{\CodeSymbol{-}}}1
+                   {~}{{\CodeSymbol\textasciitilde}}1
+                   {\&}{{\CodeSymbol{\&}}}1
+                   {1}{{\SecondCodeSymbol{1}}}1
+                   {2}{{\SecondCodeSymbol{2}}}1
+                   {3}{{\SecondCodeSymbol{3}}}1
+                   {4}{{\SecondCodeSymbol{4}}}1
+                   {5}{{\SecondCodeSymbol{5}}}1
+                   {6}{{\SecondCodeSymbol{6}}}1
+                   {7}{{\SecondCodeSymbol{7}}}1
+                   {8}{{\SecondCodeSymbol{8}}}1
+                   {9}{{\SecondCodeSymbol{9}}}1
+                   {0}{{\SecondCodeSymbol{0}}}1,
+stringstyle=\color{stringgreen}
+}
+
+\usepackage{pdfpages}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 10
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 2
+\use_esint 0
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Stichwortverzeichnis
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Using
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../pics/Rlogo.svg
+	lyxscale 10
+	height 0.7cm
+
+\end_inset
+
+ 
+\begin_inset space \space{}
+\end_inset
+
+for statistical analyses
+\end_layout
+
+\begin_layout Author
+Robert Bauer
+\end_layout
+
+\begin_layout TitleGraphic
+\begin_inset Graphics
+	filename ../pics/IOW.jpg
+	lyxscale 20
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+Warnemünde, 04/18/2012
+\end_layout
+
+\begin_layout BeginFrame
+
+\series bold
+\size large
+Day 2 - Agenda:
+\end_layout
+
+\begin_layout Itemize
+Last Exercise
+\end_layout
+
+\begin_layout Itemize
+Defining Vectors
+\end_layout
+
+\begin_layout Itemize
+aggregating and saving data
+\end_layout
+
+\begin_layout Itemize
+Exercises
+\end_layout
+
+\begin_layout Itemize
+Histograms
+\end_layout
+
+\begin_layout Itemize
+multiple plots in a single window
+\end_layout
+
+\begin_layout Itemize
+The 
+\begin_inset Quotes eld
+\end_inset
+
+plot
+\begin_inset Quotes erd
+\end_inset
+
+ function
+\end_layout
+
+\begin_layout Itemize
+Exercises
+\end_layout
+
+\begin_layout Itemize
+Random Vectors
+\end_layout
+
+\begin_layout BeginFrame
+Exercises
+\end_layout
+
+\begin_layout Enumerate
+Import 
+\begin_inset Quotes eld
+\end_inset
+
+Fish.csv
+\begin_inset Quotes erd
+\end_inset
+
+ (mind not available values!)
+\end_layout
+
+\begin_layout Enumerate
+Which was the maximum, which was the minimum size of each caught species?
+\end_layout
+
+\begin_layout Enumerate
+Create box-plots of the length distribution of both species and both sexes
+\end_layout
+
+\begin_layout Enumerate
+Create species specific box-plots of the full, empty and liver weight
+\end_layout
+
+\begin_layout Enumerate
+Define a new vector: Hepta Somatic Index 
+\begin_inset Formula $HSI=\frac{liver\, weight*100}{total\, weight}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+What is the median & the range of the HSI per species?
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% Results Q1 & Q2
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{Results}
+\backslash
+fontsize{8}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=2,lastline=10, frame=single]{day1/day1_fish_exercise.r
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% Results Q3
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{Results}
+\backslash
+fontsize{8}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=12,lastline=15, frame=single]{day1/day1_fish_exercise.
+r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{boxplots}
+\backslash
+fontsize{8}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[frame=single]
+\end_layout
+
+\begin_layout Plain Layout
+
+length.j <- total.length[species == "cod" & sex == 0]
+\end_layout
+
+\begin_layout Plain Layout
+
+length.m <- total.length[species == "cod" & sex == 1]
+\end_layout
+
+\begin_layout Plain Layout
+
+length.f <- total.length[species == "cod" & sex == 2]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+boxplot(length.f, length.m, length.j, las=1, names = c("female", "male", "juvenile"
+), ylab="total length [mm]", main = "cod")
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% Results Q4
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{Results}
+\backslash
+fontsize{8}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=17,lastline=20, frame=single]{day1/day1_fish_exercise.
+r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% Results Q5 & Q6
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{Results}
+\backslash
+fontsize{8}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=22,lastline=30, frame=single]{day1/day1_fish_exercise.
+r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Defining Vectors
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Function
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Description
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Example
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+c()
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+combining elements
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+c(
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{1}
+\end_layout
+
+\end_inset
+
+,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{2}
+\end_layout
+
+\end_inset
+
+,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{3}
+\end_layout
+
+\end_inset
+
+,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{4}
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+a:b
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sequence
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{1}
+\end_layout
+
+\end_inset
+
+:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{10}
+\end_layout
+
+\end_inset
+
+; 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{10}
+\end_layout
+
+\end_inset
+
+:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+seq(start, end, step size)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sequence
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+seq(
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{10}
+\end_layout
+
+\end_inset
+
+,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{20}
+\end_layout
+
+\end_inset
+
+,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{2}
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+rep(vector, replicates)
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+replicating data
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+rep(
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{0}
+\end_layout
+
+\end_inset
+
+,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{10}
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+rep(
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{0}
+\end_layout
+
+\end_inset
+
+:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{10}
+\end_layout
+
+\end_inset
+
+,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{10}
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Itemize
+rnorm
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Combination of commands:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+test 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{grey}{<-}
+\end_layout
+
+\end_inset
+
+ c(
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{1}
+\end_layout
+
+\end_inset
+
+:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{10}
+\end_layout
+
+\end_inset
+
+, rep(
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{0}
+\end_layout
+
+\end_inset
+
+,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{10}
+\end_layout
+
+\end_inset
+
+), seq(
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{10}
+\end_layout
+
+\end_inset
+
+,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{ blue1}{20}
+\end_layout
+
+\end_inset
+
+,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue1}{2}
+\end_layout
+
+\end_inset
+
+))
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+names = erster selbst definierte vector
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{Vectors and Data Types}
+\backslash
+fontsize{8}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[frame=single]
+\end_layout
+
+\begin_layout Plain Layout
+
+# character vectors
+\end_layout
+
+\begin_layout Plain Layout
+
+xlab <- "sea urchins"
+\end_layout
+
+\begin_layout Plain Layout
+
+names <- c("available", "not available")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# logical vectors
+\end_layout
+
+\begin_layout Plain Layout
+
+logical <- c(TRUE, FALSE, TRUE, F, T)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# integer vectors
+\end_layout
+
+\begin_layout Plain Layout
+
+numbers <- c(1,2,3,4)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# numeric vectors
+\end_layout
+
+\begin_layout Plain Layout
+
+numbers <- c(10.2,67.2)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{ll}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline  Function & Description
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline 
+\backslash
+hline  
+\backslash
+texttt{mode()} & data type
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline 
+\backslash
+texttt{str()} & data type with levels
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline 
+\backslash
+texttt{class()} & class or type of an object
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline 
+\backslash
+hline  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular} 
+\backslash
+par
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+data type wird auch im workspace angezeigt!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{Combining Vectors}
+\backslash
+fontsize{8}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[frame=single]
+\end_layout
+
+\begin_layout Plain Layout
+
+# combining vectors rowvise
+\end_layout
+
+\begin_layout Plain Layout
+
+c(xlab, names)
+\end_layout
+
+\begin_layout Plain Layout
+
+rbind(xlab, names)  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# combining vectors as columns
+\end_layout
+
+\begin_layout Plain Layout
+
+cbind(xlab, names)
+\end_layout
+
+\begin_layout Plain Layout
+
+cbind(xlab, names, logical, numbers) # won't work since vectors have different
+ numbers of rows
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# defining new dataframes
+\end_layout
+
+\begin_layout Plain Layout
+
+data.frame("col1" = seq(1,10), 21:30)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% aggregating and saving data
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{aggregating and saving data}
+\backslash
+fontsize{7}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=22, lastline=26, frame=single]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Exercises
+\end_layout
+
+\begin_layout Enumerate
+calculate the minimum full weight per sex and species using the aggregate
+ function
+\end_layout
+
+\begin_layout Enumerate
+calculate the maximum size & weight per sex and species using the aggregate
+ function (hint: use bracket selection!)
+\end_layout
+
+\begin_layout Enumerate
+save the results of ex1 and ex2 as dataframe
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% aggregating and saving data
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{Results}
+\backslash
+fontsize{8}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[frame=single]
+\end_layout
+
+\begin_layout Plain Layout
+
+# 1.
+ calculate the minimum full weight per sex and species using the aggregate
+ function
+\end_layout
+
+\begin_layout Plain Layout
+
+min.weight <- aggregate(full.weight, by = list(species=species, sex=sex),
+ FUN="min", na.rm=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# 2.
+ calculate the maximum size & weight per sex and species using the aggregate
+ function (hint: use bracket selection!)
+\end_layout
+
+\begin_layout Plain Layout
+
+max.size.and.weight <- aggregate(fish[,3:4], by = list(species=species, sex=sex),
+ FUN="max", na.rm=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# 3.
+ save the results of ex1 and ex2 as dataframe
+\end_layout
+
+\begin_layout Plain Layout
+
+write.table(min.weight, "min.weight.csv", sep=',') 
+\end_layout
+
+\begin_layout Plain Layout
+
+write.table(max.size.and.weight, "max.size.and.weight.csv", sep=',') 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{aggregating data}
+\backslash
+fontsize{8}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[frame=single]
+\end_layout
+
+\begin_layout Plain Layout
+
+max.size.and.weight <- aggregate(fish[,3:4], by = list(species=species, sex=sex),
+ FUN="max", na.rm=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+max.size.and.gonad.weight <- aggregate(fish[,c(3,7)], by = list(species=species,
+ sex=sex), FUN="max", na.rm=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+max.size.and.gonad.weight <- aggregate(cbind(total.length, gonad.weight), by =
+ list(species=species, sex=sex), FUN="max", na.rm=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% Histograms
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{Histograms}
+\backslash
+fontsize{8}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=7, lastline=7, frame=single]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{Histograms}
+\backslash
+fontsize{8}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=7, lastline=9, frame=single]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{Histograms - Changing "breaks"}
+\backslash
+fontsize{8}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=11, lastline=14, frame=single]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{2 Histograms in a single window}
+\backslash
+fontsize{8}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=16, lastline=19, frame=single]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% CTD Data
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{Loading CTD data}
+\backslash
+fontsize{7}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=29, lastline=36, frame=single]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{plotting a temperature profile}
+\backslash
+fontsize{7}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=38, lastline=41, frame=single]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{plotting a temperature profile as a line}
+\backslash
+fontsize{7}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=38, lastline=41]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=43, lastline=43, frame=single]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{plotting a temperature profile - editing the y-axis}
+\backslash
+fontsize{7}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=38, lastline=43]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=45, lastline=45, frame=single]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{plotting a temperature profile}
+\backslash
+fontsize{7}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=38, lastline=45]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=47, lastline=49, frame=single]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{plotting a temperature profile - editing the axes positions}
+\backslash
+fontsize{7}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=47, lastline=49]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=51, lastline=55, frame=single]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{plotting text, points and lines}
+\backslash
+fontsize{7}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=47, lastline=48]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=51, lastline=55]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=57, lastline=60, frame=single]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile,t]
+\backslash
+frametitle{plotting a legend}
+\backslash
+fontsize{7}{12}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=63, lastline=65]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[...,firstline=67, lastline=67, frame=single]{day2/day2.r}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}
+\backslash
+frametitle{plotting commands}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[angle=270,width=0.9
+\backslash
+paperwidth]{pics/plotting_commands} %
+\backslash
+includepdf{/home/robert/Dropbox/R_course/pics/plotting_commands.pdf}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Exercises
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+CTD.xls
+\end_layout
+
+\begin_layout Enumerate
+plot the salinity profile
+\end_layout
+
+\begin_layout Enumerate
+plot the temperature and salinity profiles above each other
+\end_layout
+
+\begin_layout Enumerate
+plot the profiles of temperature, salinity, conductivity and oxygen in a
+ 2x2 plotting window
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Parasite.xls
+\end_layout
+
+\begin_layout Enumerate
+Import Parasite.csv
+\end_layout
+
+\begin_layout Enumerate
+plot the age distribution of both sexes as 2 histograms but in one window
+\end_layout
+
+\begin_layout Enumerate
+redraw the age distribution as colored lines using the density and plot
+ function
+\end_layout
+
+\begin_layout Enumerate
+add a legend
+\end_layout
+
+\begin_layout Enumerate
+create boxplots of the weight of infected and non infected organisms and
+ both sexes
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+unique()
+\end_layout
+
+\begin_layout Plain Layout
+levels()
+\end_layout
+
+\begin_layout Plain Layout
+round()
+\end_layout
+
+\begin_layout Plain Layout
+rev()
+\end_layout
+
+\begin_layout Plain Layout
+data.frame
+\end_layout
+
+\begin_layout Plain Layout
+cbind()
+\end_layout
+
+\begin_layout Plain Layout
+factor()
+\end_layout
+
+\begin_layout Plain Layout
+other plot types: hist()
+\end_layout
+
+\begin_layout Itemize
+Datenstrukturen (Dataframes, Vektoren [Listen, Matrizen, Arrays])
+\end_layout
+
+\begin_layout Plain Layout
+write.table()
+\end_layout
+
+\begin_layout Plain Layout
+Fragen!
+\end_layout
+
+\begin_layout Itemize
+ls()
+\end_layout
+
+\begin_layout Itemize
+rm()
+\end_layout
+
+\begin_layout Itemize
+library()
+\end_layout
+
+\begin_layout Itemize
+install packages
+\end_layout
+
+\begin_layout Itemize
+Help (Google, Mailingliste, Books)
+\end_layout
+
+\begin_layout Itemize
+Beispielaufgaben (Exercise)
+\end_layout
+
+\begin_layout Itemize
+ÜBUNGEN!
+\end_layout
+
+\begin_layout Itemize
+plots(hist, density, plot, linien, points, text, legend, multiple plots)
+\end_layout
+
+\begin_layout Itemize
+selbst vektoren erstellen (c, seq, 1:20, rnorm, rep,)
+\end_layout
+
+\begin_layout Itemize
+is.nan
+\end_layout
+
+\begin_layout Itemize
+NAN (read.table, max, min)
+\end_layout
+
+\begin_layout Itemize
+levels, 
+\end_layout
+
+\begin_layout Itemize
+write.csv
+\end_layout
+
+\begin_layout Itemize
+with, by, apply, tapply, sapply
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{Your title}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+code
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\end_body
+\end_document

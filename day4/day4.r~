@@ -1,0 +1,101 @@
+
+for(i in 1:5) i
+for(i in 1:5) print(i)
+for(i in 5:1) print(i)
+
+index <- c(9,2,21,3,4)
+for(i in index) print(i)
+
+for(i in index){
+  
+  print(i)
+}
+
+i <- 1
+while(i <= 13){
+  print(i)
+  i <- i +1 
+}
+
+x <- 0
+repeat{
+  x <- x+1
+  print(x)
+  if(x >= 10) break
+}
+
+
+setwd('~/Dropbox/R_course/day4') # Import "Fish.csv" from day1
+setwd('~/Desktop') # Import "Fish.csv" from day1
+
+file <- "Clone1.csv"
+datasheet <- read.table(file, header=T, sep=',', dec=".") # load dataframe
+  
+#Perform an ANOVA to compare means between sexes
+ylabel <- "growth rate"
+boxplot(growth.rate~sex, data=datasheet, ylab=ylabel, xlab="sex", main="Clone1")
+aov(growth.rate~sex, data=datasheet)
+
+
+Clone <- 1:3
+for(i in Clone){
+  file <- paste("Clone", i, ".csv", sep="")
+  datasheet <- read.table(file, header=T, sep=',', dec=".") # load dataframe
+  # add column consisting Clone number information
+  datasheet <- data.frame(datasheet, Clone=rep(i, dim(datasheet)[1]))
+  
+  # add all subtables to new data frame
+  if(i == 1){
+    daphnia <- datasheet
+  }
+  else{
+   daphnia <- rbind(daphnia, datasheet) 
+  }
+}
+
+summary(daphnia)
+
+ylabel <- "growth rate"
+boxplot(growth.rate~sex, data=daphnia, ylab=ylabel, xlab="sex")
+aov(growth.rate~sex, data=daphnia)
+
+boxplot(growth.rate~Clone, data=daphnia, ylab=ylabel, xlab="sex")
+aov(growth.rate~Clone, data=daphnia)
+
+boxplot(growth.rate~Clone:sex, data=daphnia, ylab=ylabel, xlab="Clone/sex")
+aov(growth.rate~Clone:sex, data=daphnia)
+
+
+setwd("/home/robert/Desktop/6_ANOVA/")
+file = "/home/robert/Desktop/6_ANOVA/Daph.txt"
+datasheet <- read.table("Daph.txt", header=T, sep='', dec=".")
+head(datasheet)
+attach(datasheet)
+
+boxplot(growth.rate~river)
+
+
+x <- 5
+if(x <= 99) print("x <= 99")
+
+x <- 100
+if(x <= 99){
+  print("x <= 99")
+}
+else{
+  print("x > 99")
+}
+
+ifelse{}
+
+
+
+break
+
+# avoiding loops
+v <- vector() 
+for(i in 1 : 50000) v[i] <- var(rexp(20)) 
+
+v <- rexp(50000*20)
+g.l <- gl(50000, 20)
+mapply(var, split(v, g.l)) 
